@@ -1945,7 +1945,7 @@ outer_continue:
     agb_out(fout, "        .equ    %s_key, 0\n\n", arg_sym.c_str());
     agb_out(fout, "        .section .rodata\n");
     agb_out(fout, "        .global %s\n", arg_sym.c_str());
-    agb_out(fout, "        .align  2\n\n");
+    agb_out(fout, "        .align  4\n\n");
 
     for (size_t itrk = 0; itrk < as.tracks.size(); itrk++) {
         assert(as.tracks.size() == mf.midi_tracks.size());
@@ -2001,7 +2001,7 @@ outer_continue:
     }
     agb_out(fout, "\n");
     agb_comment_line(fout, "End of Song");
-    agb_out(fout, "\n        .align  2\n");
+    agb_out(fout, "\n        .align  4\n");
     agb_out(fout, "%s:\n", arg_sym.c_str());
     agb_out(fout, "        .byte   %-23zu @ Num Tracks\n", as.tracks.size());
     agb_out(fout, "        .byte   %-23zu @ Unknown\n", 0);
